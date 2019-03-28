@@ -51,12 +51,14 @@
 		<div class="formulario">
 			<fieldset>
 				<legend>Reserve seu lugar</legend>
-				<input type="text" name="nome" placeholder="Nome">
-				<input type="email" name="email" placeholder="Endereço de email">
-				<input type="text" name="telefone" placeholder="Número de telefone">
-				<input type="date" name="data" placeholder="Data da viagem">
-				<input type="number" name="quantidade" placeholder="Quantidade" step="1" min="1">
-				<button>Reservar Agora</button>
+				<form name="reserva" action="" method="POST">
+					<input type="text" name="nome" placeholder="Nome">
+					<input type="email" name="email" placeholder="Endereço de email">
+					<input type="text" name="telefone" placeholder="Número de telefone">
+					<input type="date" name="data" placeholder="Data da viagem">
+					<input type="number" name="quantidade" placeholder="Quantidade" step="1" min="1">
+					<button id="btnReservar">Reservar Agora</button>
+				</form>
 			</fieldset>
 		</div>
 	</div>
@@ -67,7 +69,28 @@
 	</div>
 
 	<script type="text/javascript">
-		console.log("Hello JavaScript!");
+		var btn = document.querySelector("#btnReservar");
+
+		btn.addEventListener("click", function(evento){
+			evento.preventDefault();
+			var nome = document.reserva.nome;
+			var email = document.reserva.email;
+			var telefone = document.reserva.telefone;
+			var data = document.reserva.data;
+			var quantidade = document.reserva.quantidade;
+
+
+			if(nome.value.length >= 3){
+				console.log(nome.value);
+			}else{
+				console.log("Digite pelo menos 3 caracteres.");
+			}
+
+			console.log(email.value);
+			console.log(telefone.value);
+			console.log(data.value);
+			console.log(quantidade.value);
+		});
 	</script>
 </body>
 </html>
